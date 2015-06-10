@@ -1,0 +1,15 @@
+[pracshah@hulk AlgoTurninFinal]$ ./main32
+============================================================
+
+
+Number of bits in x: 1000
+Number of bits in y: 1000
+Number of multiplications done: 100
+Number of correct multiplication: 100
+Number of wrong multiplication: 0
+Total time elapsed (code):  0.000958 seconds
+Total time elapsed (GMP):  0.000273 seconds
+Total time ratio (code/GMP):  3.512932
+
+
+============================================================

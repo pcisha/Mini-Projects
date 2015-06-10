@@ -1,0 +1,45 @@
+#! /bin/csh -f
+#----------------------------------------------------------------------
+#
+# Script to submit a job (in the script sizesweep) to the SLURM
+# batch manager. 
+#
+# You may want to change the shell to whatever you use, but bash is  
+# the usual default. Notice that for c-shell, the -f parameter means
+# "don't read in .cshrc", so change it if you use any aliases or
+# env settings in your resource or profile files.
+#
+# Use "man sbatch" to see other options that can be added. E.g., you
+# can have email sent on job start, job completion, etc. I send 
+# stdout to the file "slurmlog"; it should be an empty file unless
+# errors occur. You can also merge stdout and stderr. The --nodes 
+# value is specified by nmin:nmax, and putting nmin = nmax specifies
+# the job will run on exactly that number of nodes.
+#
+# You should have the following modules loaded. Do "module load xxxx' 
+# at the command line prompt for each one. If you already have a 
+# different version of a given module already, do "module rm xxxx" 
+# before doing the load.
+#
+#   mpi/openmpi-1.2.6-gcc
+#
+#----------------------------------------------------------------------
+
+/bin/rm -f slurmlog
+sbatch                     \
+    --output=slurmlog     \
+    --job-name=myroundrobin \
+    --nodes=2-2          \
+    --time=00:05:0          \
+    --cpus-per-task=1      \
+    --ntasks-per-node=4    \
+    --distribution=block   \
+    --verbose              \
+runit
+
+echo '--------------------------------------'
+echo -n 'Job  launched, at  '
+echo `date`
+echo 'Output from squeue:'
+squeue -a
+

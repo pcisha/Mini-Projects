@@ -1,0 +1,267 @@
+<!--
+/****************************************************************
+** P561 Project
+*****************************************************************/
+-->
+<html>
+<head>
+
+
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Password</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css" />
+  <script type="text/javascript" src="js/jquery-1.9.1.js"></script>
+
+<script type="text/javascript">
+function validateForm ( ) { 
+
+}
+
+function clearValues()
+{
+}
+
+</script>
+
+<script>
+var answer;
+var employeeid;
+$( document ).ready(function() {
+  	$("#complain").hide();
+	$("#reset").hide();
+	$("#link").hide();
+	$("#email").val('');
+	$("#secans").val('');
+
+	$("#commentsBtn").click(function() {
+			
+			var emailValue = $('#email').val();
+			//alert("Please enter your employee ID and press Next");
+			if(emailValue == "")
+			{
+				alert("Please enter your employee id");
+				$('#email').focus();
+			}
+			else
+			{
+					$.getJSON('testphp.php',{'email':emailValue},function(data){
+					{
+						//$('#secques').text(data);
+						//alert(data.secques);
+						//alert(data.secans);
+						answer = data.secans;
+						employeeid = data.employeeid;
+						$("#secques").text(data.secques);
+						$("#initial").hide();
+						$("#email").val('');
+						$("#complain").show();
+					}
+				
+				});
+
+			}
+			//alert("I am here");
+			//alert(answer);
+			
+		});
+
+		$("#comments2Btn").click(function() {
+			
+			var secansValue = $('#secans').val();
+			//alert(emailValue);
+			if(secansValue==answer)
+			{
+				$('#complain').hide();
+				/*$.getJSON('updatetemppass.php',{'logintype':'1','employeeid':employeeid},function(data){
+					{
+						var check = data.result;
+						
+						if(check==true)
+						{
+							$('#temp').text("Your temporary password is " + tempPassword);
+							$('#temp').show();
+							$('#link').show();
+						}
+						else
+						{
+							$('#temp').text("Some problem with system");
+							$('#temp').show();
+						}
+					}
+				
+				});
+				*/
+				$('#reset').show();
+			}
+			else
+			{
+					alert("Your Security Answer is incorrect...Try Again");
+					
+					$('#secans').val('');
+					$('#secans').focus();
+			}
+			//alert("I am here");
+			//alert(answer);
+			
+		});
+
+
+		$("#resetBtn").click(function() {
+			
+			//alert("i am here");
+			var passwordValue1 = $('#password').val();
+			var passwordValue2 = $('#rpassword').val();
+			
+			if(passwordValue1 == '')
+			{
+				alert("Password cannot be null. Re-enter a password");
+				
+			}
+			
+			else
+			{
+				if(passwordValue1==passwordValue2)
+				{
+					//alert("Passwords are the same.... go ahead");
+					$.getJSON('updatepass.php',{'password':passwordValue1,'employeeid':employeeid},function(data){
+					{
+						var check = data.result;
+						
+						if(check==true)
+						{
+							$('#reset').hide();
+							$('#password').val("");
+							$('#rpassword').val("");
+							$('#link').show();
+						}
+						else
+						{
+							$('#temp').text("Some problem with system....Try again after sometime");
+							$('#password').val("");
+							$('#rpassword').val("");
+							$('#reset').hide();
+							$('#temp').show();
+						}
+					}
+				
+				});
+			}
+
+				else
+				{
+					alert("Passwords are different.... try again");
+					$('#password').val("");
+					$('#rpassword').val("");
+					$('#password').focus();
+
+				}
+			}
+		});
+		
+
+
+});
+
+</script>
+
+<style type="text/css">
+body {
+	height: 770px;
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(30,87,153,1)), color-stop(100%,rgba(125,185,232,0)));
+background: -moz-linear-gradient(top, rgba(30,87,153,1) 0%, rgba(125,185,232,0) 100%);
+background: -o-linear-gradient(top, rgba(30,87,153,1) 0%,rgba(125,185,232,0) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, rgba(30,87,153,1) 0%,rgba(125,185,232,0) 100%); /* IE10+ */
+background: linear-gradient(to bottom, rgba(30,87,153,1) 0%,rgba(125,185,232,0) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#007db9e8',GradientType=0 ); /* IE6-9 */
+}
+
+
+
+table {
+
+padding:10px 200px;
+background:#FFFFFF;
+border-radius:20px;
+box-shadow: 10px 10px 5px #1e5799;
+}
+
+
+
+</style>
+
+
+
+</head>
+
+<!--CSS-->
+
+
+
+<body>
+<h3 align="left" class="col-xs-offset-0"><strong><font  color='#FFFFFF' face="courier" size='9'>EMPLOYEE MANAGEMENT PORTAL</font></strong></h3>
+<hr>
+
+
+
+ <div align="left">
+   <p><a href='login.html'><font color='#FFFFFF' face='courier' size='3'><u>Login</u></font></a>  <font color='#FFFFFF' face='courier' size='3'> | Forgot Password</font> </p>
+ </div>
+ 
+ <div align="center">
+      <p><font color='#FFFFFF' face='courier' size='5'><strong>Forgot Your Password?</strong></font></p>
+<div id="initial" >
+
+
+<p><font color='#FFFFFF' face='courier' size='3'><strong>Please enter the employee id to receive a password reset request.</strong></font></p>
+<table width="434" border="0" cellpadding="0" cellspacing="25" bgcolor='#FFFFFF' class="w900">
+<tr>
+<td  width="40%"><font color='#1e5799' face='courier' size='3'><strong> Employee ID</strong></font></td>
+<td  width="60%"><input type="text" name="email" id="email"></td>
+</tr>
+
+</table>
+<br/>
+<p align="center">
+<input type="button" class="myButton" id="commentsBtn"  value="Next" style="height: 30px; width: 150px; color: #1e5799">
+</p>
+
+</div>
+
+<div id="complain">
+<table  width="434" border="0" cellpadding="0" cellspacing="25" bgcolor='#FFFFFF' class="w900">
+    <tr>
+    	<td><font color='#1e5799' face='courier' size='3'><strong>Security Question</strong></font></td><td><div id="secques"></div></td>
+	</tr>
+	<tr>
+		<td><font color='#1e5799' face='courier' size='3'><strong>Security Answer</strong></font></td><td><input type="text" value="" name="secans" id="secans"></td>
+	</tr>
+    </table>
+	<br/>
+	<p align="center"><input type="button" class="myButton" id="comments2Btn"  value="Update" style="height: 30px; width: 150px; color: #1e5799"/>
+	</p>
+
+</div>
+
+
+<div id="reset">
+<table width="434" border="0" cellpadding="0" cellspacing="25" bgcolor='#FFFFFF' class="w900">
+<tr>
+	<td><font color='#1e5799' face='courier' size='3'><strong>Enter Password</strong></font></td><td><input type="password" value="" id="password"></td>
+</tr>
+<tr>
+	<td><font color='#1e5799' face='courier' size='3'><strong>Confirm Password</strong></font></td><td><input type="password" value="" id="rpassword"></td>
+</tr>
+</table>
+<br/>
+	<p align="center"><input type="button" id="resetBtn"  value="Reset Password" style="height: 30px; width: 150px; color: #1e5799"/></p>
+
+
+</div>
+
+<div id="link" align="center">
+	<font color='#FFFFFF' face='courier' size='3'><strong>Your Password has been successfully updated.</strong></font>
+	<a href="login.html"><font color='#FFFFFF' face='courier' size='3'><strong>Click to login</strong></font></a> 
+</div>
+</body>
+</html> 

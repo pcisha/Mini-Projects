@@ -1,0 +1,5 @@
+@prefix eg: <urn:x-hp:eg/> .
+
+eg:TeamChicago eg:defeated eg:TeamIndianapolis . 
+eg:TeamIndianapolis eg:defeated eg:TeamSeattle . 
+eg:TeamSeattle eg:defeated eg:TeamWisconsin . 

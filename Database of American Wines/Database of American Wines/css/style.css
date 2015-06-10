@@ -1,0 +1,46 @@
+/*
+ * Author: Kartik Adur (kartikadur@gmail.com)
+ * Version: 1.2
+ * Images used:
+ * wood-texture.jpg: http://www.wildtextures.com/wp-content/uploads/2011/10/wildtextures-eosin-wood-planks.jpg
+ */
+body {
+  font-family: Merriweather, serif;
+  box-sizing: border-box;
+  background: url(../img/wood-texture.jpg) repeat transparent;
+}
+
+header {
+  margin-bottom: 20px;
+/*   background: #ad6030; */
+}
+
+header img{
+  height: 200px;
+  width: 200px;
+  float: left;
+  vertical-align: bottom;
+  border: 10px solid #AD6030;
+}
+
+header h1 {
+  float: left;
+  margin-top: 120px;
+  margin-left: 20px;
+  color: whitesmoke;
+  text-shadow: 5px 5px 10px #AD6030;
+  font-weight: 900;
+}
+
+div#exhibit-browse-panel, div.exhibit-viewPanel {
+  background: whitesmoke;
+  padding: 5px;
+}
+div.exhibit-lens {
+  width: 45%;
+  float: left;
+  border: none;
+  font-size: smaller;
+  font-weight: bolder;
+  margin: 5px;
+}

@@ -1,0 +1,9 @@
+    0       1       6
+    ^       ^       ^
+    |       |       |
+    |       |       |
+    |       |       \--------- max message size's exponent
+    |       |
+    |       \-------------- message size's stride exponent
+    |
+    \------------------- min message size's exponent

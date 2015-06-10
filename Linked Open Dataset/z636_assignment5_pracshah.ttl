@@ -1,0 +1,47 @@
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+<http://example.org/Book/1> a <http://example.org/Book> ;
+	dc:title "To Kill a Mockingbird" ;
+	owl:sameAs <http://dbpedia.org/resource/To_Kill_a_Mockingbird > ;
+	dc:creator <http://example.org/Books/1> .
+
+<http://example.org/Book/2> a <http://example.org/Book> ;
+	dc:title "The Great Gatsby" ;
+	owl:sameAs <http://dbpedia.org/resource/The_Great_Gatsby > ;
+	dc:creator <http://example.org/Books/2> .
+
+<http://example.org/Book/3> a <http://example.org/Book> ;
+	dc:title "Fahrenheit 451" ;
+	owl:sameAs <http://dbpedia.org/resource/Fahrenheit_451> ;
+	dc:creator <http://example.org/Books/3> .
+
+<http://example.org/Book/4> a <http://example.org/Book> ;
+	dc:title "The Old Man and the Sea" ;
+	owl:sameAs <http://dbpedia.org/resource/The_Old_Man_and_the_Sea > ;
+	dc:creator <http://example.org/Books/4> .
+
+<http://example.org/Book/5> a <http://example.org/Book> ;
+	dc:title "In Cold Blood" ;
+	owl:sameAs <http://dbpedia.org/resource/In_Cold_Blood> ;
+	dc:creator <http://example.org/Books/5> .
+
+<http://example.org/Book/6> a <http://example.org/Book> ;
+	dc:title "The Color Purple" ;
+	owl:sameAs <http://dbpedia.org/resource/The_Color_Purple > ;
+	dc:creator <http://example.org/Books/6> .
+
+
+<http://example.org/Book/7> a <http://example.org/Book> ;
+	dc:title "Adventures of Huckleberry Finn" ;
+	owl:sameAs <http://dbpedia.org/resource/Adventures_of_Huckleberry_Finn> ;
+	dc:creator <http://example.org/Books/7> .
+
+<http://example.org/Book/8> a <http://example.org/Book> ;
+	dc:title "The Scarlet Letter" ;
+	owl:sameAs <http://dbpedia.org/resource/The_Scarlet_Letter > ;
+	dc:creator <http://example.org/Books/8> .

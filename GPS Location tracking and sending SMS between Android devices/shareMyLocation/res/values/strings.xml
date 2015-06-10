@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">shareMyLocation</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    
+    <!-- GPS Location data -->
+    <string name="location_details">GPS Location</string>
+    <string name="current_location_details">Current GPS Location is:</string>		<!-- Label to represent GPS location data -->
+    <string name="longitude">Longitude:</string>									<!-- Label to represent Longitude -->
+    <string name="latitude">Latitude:</string>										<!-- Label to represent Latitude: -->
+
+	<!-- Send SMS -->
+	<string name="phone_no">Please enter a valid phone number:</string>
+    <string name="message_text">Please enter SMS text:</string>
+    <string name="btn_send_sms_text">Send SMS!</string>
+</resources>

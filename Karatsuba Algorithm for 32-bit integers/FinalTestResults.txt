@@ -1,0 +1,202 @@
+[pracshah@hulk AlgoTurninFinal]$ ./test_32.sh
+============================================================
+
+
+Number of bits in x: 1
+Number of bits in y: 1
+Number of multiplications done: 100
+Number of correct multiplication: 100
+Number of wrong multiplication: 0
+Total time elapsed (code):  0.000090 seconds
+Total time elapsed (GMP):  0.000068 seconds
+Total time ratio (code/GMP):  1.320503
+
+
+============================================================
+============================================================
+
+
+Number of bits in x: 0
+Number of bits in y: 0
+Number of multiplications done: 100
+Number of correct multiplication: 100
+Number of wrong multiplication: 0
+Total time elapsed (code):  0.000084 seconds
+Total time elapsed (GMP):  0.000064 seconds
+Total time ratio (code/GMP):  1.318788
+
+
+============================================================
+============================================================
+
+
+Number of bits in x: 0
+Number of bits in y: 1
+Number of multiplications done: 100
+Number of correct multiplication: 100
+Number of wrong multiplication: 0
+Total time elapsed (code):  0.000088 seconds
+Total time elapsed (GMP):  0.000065 seconds
+Total time ratio (code/GMP):  1.365725
+
+
+============================================================
+============================================================
+
+
+Number of bits in x: 1
+Number of bits in y: 0
+Number of multiplications done: 100
+Number of correct multiplication: 100
+Number of wrong multiplication: 0
+Total time elapsed (code):  0.000087 seconds
+Total time elapsed (GMP):  0.000062 seconds
+Total time ratio (code/GMP):  1.398778
+
+
+============================================================
+============================================================
+
+
+Number of bits in x: 32
+Number of bits in y: 32
+Number of multiplications done: 100
+Number of correct multiplication: 100
+Number of wrong multiplication: 0
+Total time elapsed (code):  0.000087 seconds
+Total time elapsed (GMP):  0.000075 seconds
+Total time ratio (code/GMP):  1.164099
+
+
+============================================================
+============================================================
+
+
+Number of bits in x: 64
+Number of bits in y: 64
+Number of multiplications done: 100
+Number of correct multiplication: 100
+Number of wrong multiplication: 0
+Total time elapsed (code):  0.000092 seconds
+Total time elapsed (GMP):  0.000088 seconds
+Total time ratio (code/GMP):  1.040107
+
+
+============================================================
+============================================================
+
+
+Number of bits in x: 480
+Number of bits in y: 480
+Number of multiplications done: 100
+Number of correct multiplication: 100
+Number of wrong multiplication: 0
+Total time elapsed (code):  0.000299 seconds
+Total time elapsed (GMP):  0.000139 seconds
+Total time ratio (code/GMP):  2.154584
+
+
+============================================================
+*** glibc detected *** ./main32: malloc(): memory corruption: 0x08e97028 ***
+Segmentation fault
+*** glibc detected *** ./main32: malloc(): memory corruption: 0x09a28028 ***
+Segmentation fault
+============================================================
+
+
+Number of bits in x: 32
+Number of bits in y: 64
+Number of multiplications done: 100
+Number of correct multiplication: 100
+Number of wrong multiplication: 0
+Total time elapsed (code):  0.000092 seconds
+Total time elapsed (GMP):  0.000075 seconds
+Total time ratio (code/GMP):  1.226565
+
+
+============================================================
+============================================================
+
+
+Number of bits in x: 32
+Number of bits in y: 480
+Number of multiplications done: 100
+Number of correct multiplication: 100
+Number of wrong multiplication: 0
+Total time elapsed (code):  0.000110 seconds
+Total time elapsed (GMP):  0.000078 seconds
+Total time ratio (code/GMP):  1.412924
+
+
+============================================================
+============================================================
+
+
+Number of bits in x: 32
+Number of bits in y: 4064
+Number of multiplications done: 100
+Number of correct multiplication: 100
+Number of wrong multiplication: 0
+Total time elapsed (code):  0.000214 seconds
+Total time elapsed (GMP):  0.000098 seconds
+Total time ratio (code/GMP):  2.172180
+
+
+============================================================
+============================================================
+
+
+Number of bits in x: 32
+Number of bits in y: 32736
+Number of multiplications done: 100
+Number of correct multiplication: 100
+Number of wrong multiplication: 0
+Total time elapsed (code):  0.001065 seconds
+Total time elapsed (GMP):  0.000240 seconds
+Total time ratio (code/GMP):  4.428230
+
+
+============================================================
+============================================================
+
+
+Number of bits in x: 480
+Number of bits in y: 4064
+Number of multiplications done: 100
+Number of correct multiplication: 100
+Number of wrong multiplication: 0
+Total time elapsed (code):  0.001660 seconds
+Total time elapsed (GMP):  0.000458 seconds
+Total time ratio (code/GMP):  3.626840
+
+
+============================================================
+============================================================
+
+
+Number of bits in x: 480
+Number of bits in y: 32736
+Number of multiplications done: 100
+Number of correct multiplication: 100
+Number of wrong multiplication: 0
+Total time elapsed (code):  0.012717 seconds
+Total time elapsed (GMP):  0.002723 seconds
+Total time ratio (code/GMP):  4.670864
+
+
+============================================================
+============================================================
+
+
+Number of bits in x: 4064
+Number of bits in y: 32736
+Number of multiplications done: 100
+Number of correct multiplication: 100
+Number of wrong multiplication: 0
+Total time elapsed (code):  0.105836 seconds
+Total time elapsed (GMP):  0.013538 seconds
+Total time ratio (code/GMP):  7.817861
+
+
+============================================================
+[pracshah@hulk AlgoTurninFinal]$

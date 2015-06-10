@@ -1,0 +1,3 @@
+parse_headers: parse_headers
+	gcc parse_headers.c -o parse_headers capture1.pcap
+	./parse_headers

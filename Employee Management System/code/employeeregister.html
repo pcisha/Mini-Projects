@@ -1,0 +1,240 @@
+<!--
+/****************************************************************
+** P561 Project
+*****************************************************************/
+-->
+<html>
+<head>
+
+
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Password</title>
+  
+  <script type="text/javascript" src="js/jquery-1.9.1.js"></script>
+
+<script type="text/javascript">
+function validateForm ( ) { 
+
+}
+
+function clearValues()
+{
+}
+
+</script>
+
+<script>
+$( document ).ready(function() {
+  	$("#complain").hide();
+	$("#information").hide();
+	$("#link").hide();
+
+	$("#RetryBtn").click(function() {
+	$("#employeeid").val('');
+		$("#first").show();
+		$("#complain").hide();
+	
+	});
+	
+	
+	$("#commentsBtn").click(function() {
+			//alert("bitom was clicked");
+			var empValue = $('#employeeid').val();
+			
+			//alert("Please enter your employee ID and press Next");
+			if(empValue == "")
+			{
+				alert("Please enter your employee id");
+				$('#employeeid').focus();
+			}
+			else
+			{
+					$.getJSON('testforemployee.php',{'employeeid':empValue},function(data){
+					{
+						//$('#secques').text(data);
+						//alert(data.secques);
+						//alert(data.secans);
+						var user = data.user;
+						var empid = data.empid;
+						var designation = data.designation;
+						
+						if(user=="notexists")
+						{
+							$("#first").hide();
+							$("#complain").show();
+							
+						}
+						else
+						{
+							$("#first").hide();
+							$("#information").show();
+							$('input[name=employeeid]').val(empid);
+							$('input[name=designation]').val(designation);
+						}
+						
+					}
+				
+				});
+
+			}
+			//alert("I am here");
+			//alert(answer);
+			
+		});
+
+		$("#createBtn").click(function() {
+			
+			var usernameValue = $('#username').val();
+			
+			var passwordValue = $('#password').val();
+			//alert(passwordValue);
+			var secquesValue = $('#secques').val();
+			//alert(secquesValue);
+			var secansValue = $('#secans').val();
+			//alert(secansValue);
+			var designationValue = $('#designation').val();
+			//alert(designationValue);
+			var employeeValue = $('#employeeid').val();
+			//alert(employeeValue);
+
+			
+			$.getJSON('checkusername.php',{'username':usernameValue},function(data){
+			{
+						var check = data.query;
+						//alert(check);
+						
+						if(check=='success')
+						{
+							alert("UserName already exists......Select another");
+						}
+						else
+						{
+							$.getJSON('createusername.php',{'username':usernameValue,'password':passwordValue,'secques':secquesValue,'secans':secansValue,
+							'designation':designationValue,'employeeid':employeeValue},function(data){
+							{
+								var result = data.query;
+
+								if(result=='success')
+								{
+									$("#information").hide();
+									$("#link").show();
+								}
+							}
+				
+							});
+
+						}
+						
+			}
+				
+			});
+
+		});
+
+});
+
+</script>
+
+<style type="text/css">
+body {
+	height: 770px;
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(30,87,153,1)), color-stop(100%,rgba(125,185,232,0)));
+background: -moz-linear-gradient(top, rgba(30,87,153,1) 0%, rgba(125,185,232,0) 100%);
+background: -o-linear-gradient(top, rgba(30,87,153,1) 0%,rgba(125,185,232,0) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, rgba(30,87,153,1) 0%,rgba(125,185,232,0) 100%); /* IE10+ */
+background: linear-gradient(to bottom, rgba(30,87,153,1) 0%,rgba(125,185,232,0) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#007db9e8',GradientType=0 ); /* IE6-9 */
+}
+
+
+
+table {
+
+padding:10px 200px;
+background:#FFFFFF;
+border-radius:20px;
+box-shadow: 10px 10px 5px #1e5799;
+}
+
+
+
+</style>
+
+
+
+</head>
+
+<!--CSS-->
+
+
+
+<body>
+<h3 align="left" class="col-xs-offset-0"><strong><font  color='#FFFFFF' face="courier" size='9'>EMPLOYEE MANAGEMENT PORTAL</font></strong></h3>
+<hr>
+
+
+
+ <div align="left">
+   <p><a href='login.html'><font color='#FFFFFF' face='courier' size='3'><u>Login</u></font></a>  <font color='#FFFFFF' face='courier' size='3'> | First Time User</font> </p>
+ </div>
+ 
+ <div align="center" id="first">
+      <p><font color='#FFFFFF' face='courier' size='5'><strong>First Time User?</strong></font></p>
+
+<p><font color='#FFFFFF' face='courier' size='3'><strong>Please enter your employee id to create your username and password credentials</strong></font></p>
+<table width="434" border="0" cellpadding="0" cellspacing="25" bgcolor='#FFFFFF' class="w900">
+<tr>
+<td  width="40%"><font color='#1e5799' face='courier' size='3'><strong> Employee ID</strong></font></td>
+<td  width="60%"><input type="text" name="employeeid" id="employeeid"></td>
+</tr>
+
+</table>
+<br/>
+<p align="center">
+<input type="button" class="myButton" id="commentsBtn"  value="Next" style="height: 30px; width: 150px; color: #1e5799">
+</p>
+
+</div>
+
+<div id="complain" align="center">
+<table  width="434" border="0" cellpadding="0" cellspacing="25" bgcolor='#FFFFFF' class="w900" align="czenter">
+    <tr>
+    	<td><font color='#1e5799' face='courier' size='3'><strong>You do not have login credentials</strong></font></td>
+	</tr>
+</table>
+	<p align="center"><input type="button" class="myButton" id="RetryBtn"  value="Retry" style="height: 30px; width: 150px; color: #1e5799"/></p>
+
+</div>
+
+
+<div id="information">
+<table width="434" border="0" cellpadding="0" cellspacing="25" bgcolor='#FFFFFF' class="w900" align="center">
+<tr>
+	<td><font color='#1e5799' face='courier' size='3'><strong>Enter User Name</strong></font></td><td><input type="text" value="" id="username"></td>
+</tr>
+<tr>
+	<td><font color='#1e5799' face='courier' size='3'><strong>Enter Password</strong></font></td><td><input type="password" value="" id="password"></td>
+</tr>
+<tr>
+	<td><font color='#1e5799' face='courier' size='3'><strong>Enter Secret Question</strong></font></td><td><input type="secques" value="" id="secques"></td>
+</tr>
+<tr>
+	<td><font color='#1e5799' face='courier' size='3'><strong>Enter Secret Answer</strong></font></td><td><input type="secans" value="" id="secans"></td>
+</tr>
+
+</table>
+<input type="hidden" name="employeeid" id="employeeid" value="">
+<input type="hidden" name="designation" id="designation" value="">
+<br/>
+	<p align="center"><input type="button" id="createBtn"  value="Create User Credentials" style="height: 30px; width: 150px; color: #1e5799"/></p>
+
+
+</div>
+
+<div id="link" align="center">
+	<font color='#FFFFFF' face='courier' size='3'><strong>Your Password has been successfully updated.</strong></font>
+	<a href="login.html"><font color='#FFFFFF' face='courier' size='3'><strong>Click to login</strong></font></a> 
+</div>
+</body>
+</html> 

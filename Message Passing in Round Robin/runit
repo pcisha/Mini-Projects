@@ -1,0 +1,29 @@
+#! /bin/bash
+# Ryan (Weiran) Zhao 
+# Started: Sat,Feb 22th 2014 03:22:11 PM EST
+# Last Modified: Sat,Feb 22th 2014 03:50:17 PM EST
+
+#---------------------------------------------------------------------
+# this is an example script that will run "./proc" with 4, 5, 6...16 
+# processes (specify by minNumProc:stepSize:maxNumProc)
+#---------------------------------------------------------------------
+
+#----------------------------------------------------------------
+# you need to modify these numbers according to your sbatch file
+#----------------------------------------------------------------
+maxNumProc=16
+minNumProc=4
+stepSize=1
+
+#---------------------------
+# this is where "mpirun" is
+#---------------------------
+RUN=/usr/mpi/gcc/openmpi-1.2.6/bin/mpirun
+
+for num in $(seq $minNumProc $stepSize $maxNumProc); do
+    #------------------------------------------------------
+    # run program "./proc" with number of "$num" processes
+    #------------------------------------------------------
+    echo running programme with $num processes
+    $RUN -n $num ./go
+done

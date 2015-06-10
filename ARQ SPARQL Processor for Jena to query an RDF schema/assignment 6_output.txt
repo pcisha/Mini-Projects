@@ -1,0 +1,35 @@
+The Inference model is valid!
+=======================================================================
+
+>> Part 1: Inference model and SPARQL Queries:
+Query Results 1: Displays Family Name and Given Name: 
+----------------------------
+| Family_Name | Given_Name |
+============================
+| "Jason"     | "Day"      |
+| "Sara"      | "Gilbert"  |
+| "Smith"     | "Carl"     |
+| "Jay"       | "Dawn"     |
+----------------------------
+
+Query Results 2: Group Pattern: Value constraint for an Integer: Displays Names of people having age > 40: 
+------------------------
+| Name           | Age |
+========================
+| "Jason Day"    | 55  |
+| "Sara Gilbert" | 60  |
+| "Carl Smith"   | 45  |
+------------------------
+
+=====================================================================================
+>> Part 2: Jena Reasoner with Transitivity Rules and Derivations: 
+
+The Inference model is valid!
+
+Transitivity result statement: [urn:x-hp:eg/TeamChicago, urn:x-hp:eg/defeated, urn:x-hp:eg/TeamWisconsin]
+
+Rule rule concluded (eg:TeamChicago eg:defeated eg:TeamWisconsin) <-
+    Rule rule concluded (eg:TeamChicago eg:defeated eg:TeamSeattle) <-
+        Fact (eg:TeamChicago eg:defeated eg:TeamIndianapolis)
+        Fact (eg:TeamIndianapolis eg:defeated eg:TeamSeattle)
+    Fact (eg:TeamSeattle eg:defeated eg:TeamWisconsin)

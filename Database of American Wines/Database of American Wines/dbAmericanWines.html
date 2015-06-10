@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!-- Images Used -- Logo-2.jpg : http://fc00.deviantart.net/fs71/i/2009/341/6/4/Red_Mahogany_Wood_Texture_by_SweetSoulSister.jpg -->
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta lang="en"/>
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+		<meta name="author" content="Kartik Adur" />
+
+		<title>Database of American Wines</title>
+
+		<link href='http://fonts.googleapis.com/css?family=Merriweather:400,700,900' rel='stylesheet' type='text/css'>
+		<link type="text/css" href="css/bootstrap.min.css" rel="stylesheet" />
+		
+
+		<script src="http://trunk.simile-widgets.org/exhibit/api/exhibit-api.js" type="text/javascript"></script>
+		<link rel="exhibit/data" type="application/rdf+xml" href="newWineCollection.owl"/>
+
+		<script src="http://trunk.simile-widgets.org/exhibit/api/exhibit-api.js"></script>
+
+		<script src="http://trunk.simile-widgets.org/exhibit/api/extensions/time/time-extension.js" type="text/javascript"></script>
+
+		<script src="http://trunk.simile-widgets.org/exhibit/api/extensions/map/map-extension.js"></script>
+		<link type="text/css" href="css/style.css" rel="stylesheet" />
+	</head>
+	<body>
+		<header class="container-fluid clearfix">
+			<img src="img/Logo-2.png" />
+			<h1>BLUESHOE WINES</h1>
+		</header>
+		<div class="container-fluid clearfix">
+			<div ex:role="collection" ex:itemTypes="Wine"></div>
+			<div id="exhibit-browse-panel" class="col-md-3 col-xs-12">
+				<div ex:role="facet" ex:expression=".madeFrom" ex:facetLabel="Grapes"  ex:scroll="false"></div>
+				<div ex:role="facet" ex:expression=".hasColor" ex:facetLabel="Color" ex:scroll="false"></div>
+				<div ex:role="facet" ex:expression=".producedBy" ex:facetLabel="Winery" ex:scroll="false"></div>
+			</div>
+			<div ex:role="viewPanel" ex:initialView="0" class="col-md-9 col-xs-12">
+				<div ex:role="view"
+				ex:viewClass="Map"
+				ex:label="Wines by Location"
+				ex:latlng=".producedBy.latlng"
+				ex:autoposition="true"
+				ex:maxAutoZoom="5"
+				ex:bubbleWidth="200"
+				ex:selectCoordinator="Wine"
+				ex:mapHeight="450"
+				ex:scaleControl ="false"
+				></div>
+
+				<div ex:role="view"
+				ex:viewClass="Thumbnail"
+				ex:label="Details"
+				ex:orders=".producedBy"
+				ex:possibleOrders=".label,.producedBy,.vintage,.hasColor,.madeFrom,.alcoholContent"
+				ex:showAll="true"
+				>
+
+					<div ex:role="wines" style="display: none;">
+						<div>
+							<span ex:content=".label"></span>
+						</div>
+						<div>
+							<span ex:content=".producedBy"></span>
+							<span ex:content=".vintage"></span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,894 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY wineCollection "http://www.semanticweb.org/wineCollection.rdf#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.semanticweb.org/wineCollection.rdf#"
+     xml:base="http://www.semanticweb.org/wineCollection.rdf"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:wineCollection="http://www.semanticweb.org/wineCollection.rdf#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/wineCollection.rdf"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/wineCollection.rdf#hasColor -->
+
+    <owl:ObjectProperty rdf:about="&wineCollection;hasColor">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&wineCollection;Color"/>
+        <rdfs:domain rdf:resource="&wineCollection;Wine"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/wineCollection.rdf#madeFrom -->
+
+    <owl:ObjectProperty rdf:about="&wineCollection;madeFrom">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&wineCollection;Grapes"/>
+        <rdfs:domain rdf:resource="&wineCollection;Wine"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/wineCollection.rdf#producedBy -->
+
+    <owl:ObjectProperty rdf:about="&wineCollection;producedBy">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&wineCollection;Wine"/>
+        <rdfs:range rdf:resource="&wineCollection;Winery"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/wineCollection.rdf#produces -->
+
+    <owl:ObjectProperty rdf:about="&wineCollection;produces">
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <rdfs:range rdf:resource="&wineCollection;Wine"/>
+        <rdfs:domain rdf:resource="&wineCollection;Winery"/>
+        <owl:inverseOf rdf:resource="&wineCollection;producedBy"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/wineCollection.rdf#alcoholContent -->
+
+    <owl:DatatypeProperty rdf:about="&wineCollection;alcoholContent">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&wineCollection;Wine"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:onDatatype rdf:resource="&xsd;float"/>
+                <owl:withRestrictions rdf:parseType="Collection">
+                    <rdf:Description>
+                        <xsd:minInclusive rdf:datatype="&xsd;float">10.0</xsd:minInclusive>
+                    </rdf:Description>
+                    <rdf:Description>
+                        <xsd:maxInclusive rdf:datatype="&xsd;float">20.0</xsd:maxInclusive>
+                    </rdf:Description>
+                </owl:withRestrictions>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/wineCollection.rdf#latlng -->
+
+    <owl:DatatypeProperty rdf:about="&wineCollection;latlng">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&wineCollection;Winery"/>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/wineCollection.rdf#vintage -->
+
+    <owl:DatatypeProperty rdf:about="&wineCollection;vintage">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&wineCollection;Wine"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:onDatatype rdf:resource="&xsd;integer"/>
+                <owl:withRestrictions rdf:parseType="Collection">
+                    <rdf:Description>
+                        <xsd:minInclusive rdf:datatype="&xsd;integer">1900</xsd:minInclusive>
+                    </rdf:Description>
+                    <rdf:Description>
+                        <xsd:maxInclusive rdf:datatype="&xsd;integer">2200</xsd:maxInclusive>
+                    </rdf:Description>
+                </owl:withRestrictions>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/wineCollection.rdf#Color -->
+
+    <owl:Class rdf:about="&wineCollection;Color">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&wineCollection;Pale_Yellow"/>
+                    <rdf:Description rdf:about="&wineCollection;Deep_Purple"/>
+                    <rdf:Description rdf:about="&wineCollection;Deep_Salmon"/>
+                    <rdf:Description rdf:about="&wineCollection;Deep_Violet"/>
+                    <rdf:Description rdf:about="&wineCollection;Deep_Gold"/>
+                    <rdf:Description rdf:about="&wineCollection;Green_Yellow"/>
+                    <rdf:Description rdf:about="&wineCollection;Platinum_Yellow"/>
+                    <rdf:Description rdf:about="&wineCollection;Almost_Clear"/>
+                    <rdf:Description rdf:about="&wineCollection;Deep_Pink"/>
+                    <rdf:Description rdf:about="&wineCollection;Tawny"/>
+                    <rdf:Description rdf:about="&wineCollection;Pale_Gold"/>
+                    <rdf:Description rdf:about="&wineCollection;Pale_Ruby"/>
+                    <rdf:Description rdf:about="&wineCollection;Pale_Salmon"/>
+                </owl:oneOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/wineCollection.rdf#Dessert -->
+
+    <owl:Class rdf:about="&wineCollection;Dessert">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&wineCollection;Wine"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&wineCollection;hasColor"/>
+                        <owl:hasValue rdf:resource="&wineCollection;Tawny"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&wineCollection;Wine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/wineCollection.rdf#Grapes -->
+
+    <owl:Class rdf:about="&wineCollection;Grapes">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&wineCollection;Pinot_Noir"/>
+                    <rdf:Description rdf:about="&wineCollection;Chardonnay"/>
+                    <rdf:Description rdf:about="&wineCollection;Muscat"/>
+                    <rdf:Description rdf:about="&wineCollection;Cabernet_Sauvignon"/>
+                    <rdf:Description rdf:about="&wineCollection;Rosé"/>
+                    <rdf:Description rdf:about="&wineCollection;Shiraz"/>
+                    <rdf:Description rdf:about="&wineCollection;Syrah"/>
+                    <rdf:Description rdf:about="&wineCollection;Merlot"/>
+                    <rdf:Description rdf:about="&wineCollection;Sauvignon_Blanc"/>
+                </owl:oneOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/wineCollection.rdf#Red -->
+
+    <owl:Class rdf:about="&wineCollection;Red">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&wineCollection;Wine"/>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&wineCollection;hasColor"/>
+                                <owl:hasValue rdf:resource="&wineCollection;Deep_Purple"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&wineCollection;hasColor"/>
+                                <owl:hasValue rdf:resource="&wineCollection;Deep_Violet"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&wineCollection;hasColor"/>
+                                <owl:hasValue rdf:resource="&wineCollection;Pale_Ruby"/>
+                            </owl:Restriction>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&wineCollection;Wine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/wineCollection.rdf#Rose -->
+
+    <owl:Class rdf:about="&wineCollection;Rose">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&wineCollection;Wine"/>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&wineCollection;hasColor"/>
+                                <owl:hasValue rdf:resource="&wineCollection;Deep_Pink"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&wineCollection;hasColor"/>
+                                <owl:hasValue rdf:resource="&wineCollection;Deep_Salmon"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&wineCollection;hasColor"/>
+                                <owl:hasValue rdf:resource="&wineCollection;Pale_Salmon"/>
+                            </owl:Restriction>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&wineCollection;Wine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/wineCollection.rdf#Sparkling -->
+
+    <owl:Class rdf:about="&wineCollection;Sparkling">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&wineCollection;Wine"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&wineCollection;hasColor"/>
+                        <owl:hasValue rdf:resource="&wineCollection;Almost_Clear"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&wineCollection;Wine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/wineCollection.rdf#White -->
+
+    <owl:Class rdf:about="&wineCollection;White">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&wineCollection;Wine"/>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&wineCollection;hasColor"/>
+                                <owl:hasValue rdf:resource="&wineCollection;Almost_Clear"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&wineCollection;hasColor"/>
+                                <owl:hasValue rdf:resource="&wineCollection;Deep_Gold"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&wineCollection;hasColor"/>
+                                <owl:hasValue rdf:resource="&wineCollection;Green_Yellow"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&wineCollection;hasColor"/>
+                                <owl:hasValue rdf:resource="&wineCollection;Pale_Gold"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&wineCollection;hasColor"/>
+                                <owl:hasValue rdf:resource="&wineCollection;Pale_Yellow"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&wineCollection;hasColor"/>
+                                <owl:hasValue rdf:resource="&wineCollection;Platinum_Yellow"/>
+                            </owl:Restriction>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&wineCollection;Wine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/wineCollection.rdf#Wine -->
+
+    <owl:Class rdf:about="&wineCollection;Wine">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&wineCollection;Henrys_Syrah"/>
+                    <rdf:Description rdf:about="&wineCollection;Angeline_Pinot_Noir"/>
+                    <rdf:Description rdf:about="&wineCollection;River_Road_Reserve_Chardonnay"/>
+                    <rdf:Description rdf:about="&wineCollection;Chambers_Rosewood_Muscat"/>
+                    <rdf:Description rdf:about="&wineCollection;Sextant_Sauvignon_Blanc"/>
+                    <rdf:Description rdf:about="&wineCollection;Sextant_Cabernet_Sauvignon"/>
+                    <rdf:Description rdf:about="&wineCollection;Guenoc_Lillie_Chardonnay"/>
+                    <rdf:Description rdf:about="&wineCollection;Bodegas_Rose"/>
+                    <rdf:Description rdf:about="&wineCollection;Domaine_Rosé"/>
+                    <rdf:Description rdf:about="&wineCollection;Shafer_Merlot"/>
+                </owl:oneOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&wineCollection;madeFrom"/>
+                <owl:onClass rdf:resource="&wineCollection;Grapes"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&wineCollection;hasColor"/>
+                <owl:onClass rdf:resource="&wineCollection;Color"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&wineCollection;producedBy"/>
+                <owl:onClass rdf:resource="&wineCollection;Winery"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&wineCollection;vintage"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange>
+                    <rdfs:Datatype>
+                        <owl:onDatatype rdf:resource="&xsd;integer"/>
+                        <owl:withRestrictions rdf:parseType="Collection">
+                            <rdf:Description>
+                                <xsd:minInclusive rdf:datatype="&xsd;integer">1900</xsd:minInclusive>
+                            </rdf:Description>
+                            <rdf:Description>
+                                <xsd:maxInclusive rdf:datatype="&xsd;integer">2200</xsd:maxInclusive>
+                            </rdf:Description>
+                        </owl:withRestrictions>
+                    </rdfs:Datatype>
+                </owl:onDataRange>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&wineCollection;alcoholContent"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange>
+                    <rdfs:Datatype>
+                        <owl:onDatatype rdf:resource="&xsd;float"/>
+                        <owl:withRestrictions rdf:parseType="Collection">
+                            <rdf:Description>
+                                <xsd:minInclusive rdf:datatype="&xsd;float">10.0</xsd:minInclusive>
+                            </rdf:Description>
+                            <rdf:Description>
+                                <xsd:maxInclusive rdf:datatype="&xsd;float">20.0</xsd:maxInclusive>
+                            </rdf:Description>
+                        </owl:withRestrictions>
+                    </rdfs:Datatype>
+                </owl:onDataRange>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/wineCollection.rdf#Winery -->
+
+    <owl:Class rdf:about="&wineCollection;Winery">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&wineCollection;Martin_Ray_Winery"/>
+                    <rdf:Description rdf:about="&wineCollection;Guenoc_Vineyards"/>
+                    <rdf:Description rdf:about="&wineCollection;Sextant_Winery"/>
+                    <rdf:Description rdf:about="&wineCollection;River_Road_Cellars"/>
+                    <rdf:Description rdf:about="&wineCollection;Shafer_Vineyards"/>
+                </owl:oneOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&wineCollection;produces"/>
+                <owl:someValuesFrom rdf:resource="&wineCollection;Wine"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/wineCollection.rdf#Almost_Clear -->
+
+    <owl:NamedIndividual rdf:about="&wineCollection;Almost_Clear">
+        <rdf:type rdf:resource="&wineCollection;Color"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/wineCollection.rdf#Angeline_Pinot_Noir -->
+
+    <owl:NamedIndividual rdf:about="&wineCollection;Angeline_Pinot_Noir">
+        <rdf:type rdf:resource="&wineCollection;Wine"/>
+        <alcoholContent rdf:datatype="&xsd;float">13.9</alcoholContent>
+        <vintage rdf:datatype="&xsd;integer">2011</vintage>
+        <hasColor rdf:resource="&wineCollection;Pale_Ruby"/>
+        <madeFrom rdf:resource="&wineCollection;Pinot_Noir"/>
+        <producedBy rdf:resource="&wineCollection;River_Road_Cellars"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/wineCollection.rdf#Bodegas_Rose -->
+
+    <owl:NamedIndividual rdf:about="&wineCollection;Bodegas_Rose">
+        <rdf:type rdf:resource="&wineCollection;Wine"/>
+        <alcoholContent rdf:datatype="&xsd;float">13.5</alcoholContent>
+        <vintage rdf:datatype="&xsd;integer">2010</vintage>
+        <producedBy rdf:resource="&wineCollection;Martin_Ray_Winery"/>
+        <hasColor rdf:resource="&wineCollection;Pale_Salmon"/>
+        <madeFrom rdf:resource="&wineCollection;Rosé"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/wineCollection.rdf#Cabernet_Sauvignon -->
+
+    <owl:NamedIndividual rdf:about="&wineCollection;Cabernet_Sauvignon">
+        <rdf:type rdf:resource="&wineCollection;Grapes"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/wineCollection.rdf#Chambers_Rosewood_Muscat -->
+
+    <owl:NamedIndividual rdf:about="&wineCollection;Chambers_Rosewood_Muscat">
+        <rdf:type rdf:resource="&wineCollection;Wine"/>
+        <alcoholContent rdf:datatype="&xsd;float">18.0</alcoholContent>
+        <vintage rdf:datatype="&xsd;integer">2008</vintage>
+        <producedBy rdf:resource="&wineCollection;Martin_Ray_Winery"/>
+        <madeFrom rdf:resource="&wineCollection;Muscat"/>
+        <hasColor rdf:resource="&wineCollection;Tawny"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/wineCollection.rdf#Chardonnay -->
+
+    <owl:NamedIndividual rdf:about="&wineCollection;Chardonnay">
+        <rdf:type rdf:resource="&wineCollection;Grapes"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/wineCollection.rdf#Deep_Gold -->
+
+    <owl:NamedIndividual rdf:about="&wineCollection;Deep_Gold">
+        <rdf:type rdf:resource="&wineCollection;Color"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/wineCollection.rdf#Deep_Pink -->
+
+    <owl:NamedIndividual rdf:about="&wineCollection;Deep_Pink">
+        <rdf:type rdf:resource="&wineCollection;Color"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/wineCollection.rdf#Deep_Purple -->
+
+    <owl:NamedIndividual rdf:about="&wineCollection;Deep_Purple">
+        <rdf:type rdf:resource="&wineCollection;Color"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/wineCollection.rdf#Deep_Salmon -->
+
+    <owl:NamedIndividual rdf:about="&wineCollection;Deep_Salmon">
+        <rdf:type rdf:resource="&wineCollection;Color"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/wineCollection.rdf#Deep_Violet -->
+
+    <owl:NamedIndividual rdf:about="&wineCollection;Deep_Violet">
+        <rdf:type rdf:resource="&wineCollection;Color"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/wineCollection.rdf#Domaine_Rosé -->
+
+    <owl:NamedIndividual rdf:about="&wineCollection;Domaine_Rosé">
+        <rdf:type rdf:resource="&wineCollection;Wine"/>
+        <alcoholContent rdf:datatype="&xsd;float">13.5</alcoholContent>
+        <vintage rdf:datatype="&xsd;integer">2010</vintage>
+        <hasColor rdf:resource="&wineCollection;Deep_Salmon"/>
+        <producedBy rdf:resource="&wineCollection;Guenoc_Vineyards"/>
+        <madeFrom rdf:resource="&wineCollection;Rosé"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/wineCollection.rdf#Green_Yellow -->
+
+    <owl:NamedIndividual rdf:about="&wineCollection;Green_Yellow">
+        <rdf:type rdf:resource="&wineCollection;Color"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/wineCollection.rdf#Guenoc_Lillie_Chardonnay -->
+
+    <owl:NamedIndividual rdf:about="&wineCollection;Guenoc_Lillie_Chardonnay">
+        <rdf:type rdf:resource="&wineCollection;Wine"/>
+        <alcoholContent rdf:datatype="&xsd;float">13.5</alcoholContent>
+        <vintage rdf:datatype="&xsd;integer">2010</vintage>
+        <madeFrom rdf:resource="&wineCollection;Chardonnay"/>
+        <producedBy rdf:resource="&wineCollection;Guenoc_Vineyards"/>
+        <hasColor rdf:resource="&wineCollection;Pale_Gold"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/wineCollection.rdf#Guenoc_Vineyards -->
+
+    <owl:NamedIndividual rdf:about="&wineCollection;Guenoc_Vineyards">
+        <rdf:type rdf:resource="&wineCollection;Winery"/>
+        <latlng rdf:datatype="&rdfs;Literal">38.735805,-122.527765</latlng>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/wineCollection.rdf#Henrys_Syrah -->
+
+    <owl:NamedIndividual rdf:about="&wineCollection;Henrys_Syrah">
+        <rdf:type rdf:resource="&wineCollection;Wine"/>
+        <alcoholContent rdf:datatype="&xsd;float">14.7</alcoholContent>
+        <vintage rdf:datatype="&xsd;integer">2008</vintage>
+        <hasColor rdf:resource="&wineCollection;Deep_Purple"/>
+        <producedBy rdf:resource="&wineCollection;Shafer_Vineyards"/>
+        <madeFrom rdf:resource="&wineCollection;Shiraz"/>
+        <madeFrom rdf:resource="&wineCollection;Syrah"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/wineCollection.rdf#Martin_Ray_Winery -->
+
+    <owl:NamedIndividual rdf:about="&wineCollection;Martin_Ray_Winery">
+        <rdf:type rdf:resource="&wineCollection;Winery"/>
+        <latlng rdf:datatype="&rdfs;Literal">38.469055,-122.850627</latlng>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/wineCollection.rdf#Merlot -->
+
+    <owl:NamedIndividual rdf:about="&wineCollection;Merlot">
+        <rdf:type rdf:resource="&wineCollection;Grapes"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/wineCollection.rdf#Muscat -->
+
+    <owl:NamedIndividual rdf:about="&wineCollection;Muscat">
+        <rdf:type rdf:resource="&wineCollection;Grapes"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/wineCollection.rdf#Pale_Gold -->
+
+    <owl:NamedIndividual rdf:about="&wineCollection;Pale_Gold">
+        <rdf:type rdf:resource="&wineCollection;Color"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/wineCollection.rdf#Pale_Ruby -->
+
+    <owl:NamedIndividual rdf:about="&wineCollection;Pale_Ruby">
+        <rdf:type rdf:resource="&wineCollection;Color"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/wineCollection.rdf#Pale_Salmon -->
+
+    <owl:NamedIndividual rdf:about="&wineCollection;Pale_Salmon">
+        <rdf:type rdf:resource="&wineCollection;Color"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/wineCollection.rdf#Pale_Yellow -->
+
+    <owl:NamedIndividual rdf:about="&wineCollection;Pale_Yellow">
+        <rdf:type rdf:resource="&wineCollection;Color"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/wineCollection.rdf#Pinot_Noir -->
+
+    <owl:NamedIndividual rdf:about="&wineCollection;Pinot_Noir">
+        <rdf:type rdf:resource="&wineCollection;Grapes"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/wineCollection.rdf#Platinum_Yellow -->
+
+    <owl:NamedIndividual rdf:about="&wineCollection;Platinum_Yellow">
+        <rdf:type rdf:resource="&wineCollection;Color"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/wineCollection.rdf#River_Road_Cellars -->
+
+    <owl:NamedIndividual rdf:about="&wineCollection;River_Road_Cellars">
+        <rdf:type rdf:resource="&wineCollection;Winery"/>
+        <latlng rdf:datatype="&rdfs;Literal">38.458043,-122.881828</latlng>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/wineCollection.rdf#River_Road_Reserve_Chardonnay -->
+
+    <owl:NamedIndividual rdf:about="&wineCollection;River_Road_Reserve_Chardonnay">
+        <rdf:type rdf:resource="&wineCollection;Wine"/>
+        <alcoholContent rdf:datatype="&xsd;float">13.7</alcoholContent>
+        <vintage rdf:datatype="&xsd;integer">2012</vintage>
+        <madeFrom rdf:resource="&wineCollection;Chardonnay"/>
+        <hasColor rdf:resource="&wineCollection;Pale_Gold"/>
+        <producedBy rdf:resource="&wineCollection;River_Road_Cellars"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/wineCollection.rdf#Rosé -->
+
+    <owl:NamedIndividual rdf:about="&wineCollection;Rosé">
+        <rdf:type rdf:resource="&wineCollection;Grapes"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/wineCollection.rdf#Sauvignon_Blanc -->
+
+    <owl:NamedIndividual rdf:about="&wineCollection;Sauvignon_Blanc">
+        <rdf:type rdf:resource="&wineCollection;Grapes"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/wineCollection.rdf#Sextant_Cabernet_Sauvignon -->
+
+    <owl:NamedIndividual rdf:about="&wineCollection;Sextant_Cabernet_Sauvignon">
+        <rdf:type rdf:resource="&wineCollection;Wine"/>
+        <alcoholContent rdf:datatype="&xsd;float">14.5</alcoholContent>
+        <vintage rdf:datatype="&xsd;integer">2012</vintage>
+        <madeFrom rdf:resource="&wineCollection;Cabernet_Sauvignon"/>
+        <hasColor rdf:resource="&wineCollection;Deep_Purple"/>
+        <producedBy rdf:resource="&wineCollection;Sextant_Winery"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/wineCollection.rdf#Sextant_Sauvignon_Blanc -->
+
+    <owl:NamedIndividual rdf:about="&wineCollection;Sextant_Sauvignon_Blanc">
+        <rdf:type rdf:resource="&wineCollection;Wine"/>
+        <alcoholContent rdf:datatype="&xsd;float">13.0</alcoholContent>
+        <vintage rdf:datatype="&xsd;integer">2012</vintage>
+        <hasColor rdf:resource="&wineCollection;Green_Yellow"/>
+        <madeFrom rdf:resource="&wineCollection;Sauvignon_Blanc"/>
+        <producedBy rdf:resource="&wineCollection;Sextant_Winery"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/wineCollection.rdf#Sextant_Winery -->
+
+    <owl:NamedIndividual rdf:about="&wineCollection;Sextant_Winery">
+        <rdf:type rdf:resource="&wineCollection;Winery"/>
+        <latlng rdf:datatype="&rdfs;Literal">35.633555,-120.6566579</latlng>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/wineCollection.rdf#Shafer_Merlot -->
+
+    <owl:NamedIndividual rdf:about="&wineCollection;Shafer_Merlot">
+        <rdf:type rdf:resource="&wineCollection;Wine"/>
+        <alcoholContent rdf:datatype="&xsd;float">15.1</alcoholContent>
+        <vintage rdf:datatype="&xsd;integer">2012</vintage>
+        <hasColor rdf:resource="&wineCollection;Deep_Violet"/>
+        <madeFrom rdf:resource="&wineCollection;Merlot"/>
+        <producedBy rdf:resource="&wineCollection;Shafer_Vineyards"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/wineCollection.rdf#Shafer_Vineyards -->
+
+    <owl:NamedIndividual rdf:about="&wineCollection;Shafer_Vineyards">
+        <rdf:type rdf:resource="&wineCollection;Winery"/>
+        <latlng rdf:datatype="&rdfs;Literal">38.419906,-122.326905</latlng>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/wineCollection.rdf#Shiraz -->
+
+    <owl:NamedIndividual rdf:about="&wineCollection;Shiraz">
+        <rdf:type rdf:resource="&wineCollection;Grapes"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/wineCollection.rdf#Syrah -->
+
+    <owl:NamedIndividual rdf:about="&wineCollection;Syrah">
+        <rdf:type rdf:resource="&wineCollection;Grapes"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/wineCollection.rdf#Tawny -->
+
+    <owl:NamedIndividual rdf:about="&wineCollection;Tawny">
+        <rdf:type rdf:resource="&wineCollection;Color"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="&wineCollection;Cabernet_Sauvignon"/>
+            <rdf:Description rdf:about="&wineCollection;Chardonnay"/>
+            <rdf:Description rdf:about="&wineCollection;Merlot"/>
+            <rdf:Description rdf:about="&wineCollection;Muscat"/>
+            <rdf:Description rdf:about="&wineCollection;Pinot_Noir"/>
+            <rdf:Description rdf:about="&wineCollection;Rosé"/>
+            <rdf:Description rdf:about="&wineCollection;Sauvignon_Blanc"/>
+            <rdf:Description rdf:about="&wineCollection;Syrah"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="&wineCollection;Guenoc_Vineyards"/>
+            <rdf:Description rdf:about="&wineCollection;Martin_Ray_Winery"/>
+            <rdf:Description rdf:about="&wineCollection;River_Road_Cellars"/>
+            <rdf:Description rdf:about="&wineCollection;Sextant_Winery"/>
+            <rdf:Description rdf:about="&wineCollection;Shafer_Vineyards"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="&wineCollection;Almost_Clear"/>
+            <rdf:Description rdf:about="&wineCollection;Deep_Gold"/>
+            <rdf:Description rdf:about="&wineCollection;Deep_Pink"/>
+            <rdf:Description rdf:about="&wineCollection;Deep_Purple"/>
+            <rdf:Description rdf:about="&wineCollection;Deep_Salmon"/>
+            <rdf:Description rdf:about="&wineCollection;Deep_Violet"/>
+            <rdf:Description rdf:about="&wineCollection;Green_Yellow"/>
+            <rdf:Description rdf:about="&wineCollection;Pale_Gold"/>
+            <rdf:Description rdf:about="&wineCollection;Pale_Ruby"/>
+            <rdf:Description rdf:about="&wineCollection;Pale_Salmon"/>
+            <rdf:Description rdf:about="&wineCollection;Pale_Yellow"/>
+            <rdf:Description rdf:about="&wineCollection;Platinum_Yellow"/>
+            <rdf:Description rdf:about="&wineCollection;Tawny"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="&wineCollection;Angeline_Pinot_Noir"/>
+            <rdf:Description rdf:about="&wineCollection;Bodegas_Rose"/>
+            <rdf:Description rdf:about="&wineCollection;Chambers_Rosewood_Muscat"/>
+            <rdf:Description rdf:about="&wineCollection;Domaine_Rosé"/>
+            <rdf:Description rdf:about="&wineCollection;Guenoc_Lillie_Chardonnay"/>
+            <rdf:Description rdf:about="&wineCollection;Henrys_Syrah"/>
+            <rdf:Description rdf:about="&wineCollection;River_Road_Reserve_Chardonnay"/>
+            <rdf:Description rdf:about="&wineCollection;Sextant_Cabernet_Sauvignon"/>
+            <rdf:Description rdf:about="&wineCollection;Sextant_Sauvignon_Blanc"/>
+            <rdf:Description rdf:about="&wineCollection;Shafer_Merlot"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="&wineCollection;Cabernet_Sauvignon"/>
+            <rdf:Description rdf:about="&wineCollection;Chardonnay"/>
+            <rdf:Description rdf:about="&wineCollection;Merlot"/>
+            <rdf:Description rdf:about="&wineCollection;Muscat"/>
+            <rdf:Description rdf:about="&wineCollection;Pinot_Noir"/>
+            <rdf:Description rdf:about="&wineCollection;Rosé"/>
+            <rdf:Description rdf:about="&wineCollection;Sauvignon_Blanc"/>
+            <rdf:Description rdf:about="&wineCollection;Shiraz"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.5.0) http://owlapi.sourceforge.net -->
+

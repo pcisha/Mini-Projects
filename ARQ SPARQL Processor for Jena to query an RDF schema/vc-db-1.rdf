@@ -1,0 +1,57 @@
+<rdf:RDF
+  xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#'
+  xmlns:vCard='http://www.w3.org/2001/vcard-rdf/3.0#'
+   >
+
+  <rdf:Description rdf:about="http://somewhere/JayDawn/">
+    <vCard:FN>Jay Dawn</vCard:FN>
+    <vCard:N rdf:parseType="Resource">
+	<vCard:Family>Jay</vCard:Family>
+	<vCard:Given>Dawn</vCard:Given>
+    </vCard:N>
+	<vCard:Country>United States</vCard:Country>
+	<vCard:Education>Masters in Computer Science</vCard:Education>	
+	<vCard:age rdf:datatype='http://www.w3.org/2001/XMLSchema#integer'>33</vCard:age>
+	<vCard:Email rdf:parseType="Resource">
+		<rdf:type rdf:resource="http://www.w3.org/2001/vcard-rdf/3.0#internet"/>
+		<rdf:value>jaydawn@somewhere.com</rdf:value>
+    </vCard:Email>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://somewhere/CarlSmith/">
+    <vCard:FN>Carl Smith</vCard:FN>
+    <vCard:N rdf:parseType="Resource">
+	<vCard:Given>Carl</vCard:Given>
+	<vCard:Family>Smith</vCard:Family>
+    </vCard:N>
+	<vCard:Country>India</vCard:Country>
+	
+	<vCard:age rdf:datatype='http://www.w3.org/2001/XMLSchema#integer'>45</vCard:age>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://somewhere/SaraGilbert/">
+    <vCard:FN>Sara Gilbert</vCard:FN>
+    <vCard:N rdf:parseType="Resource">
+	<vCard:Family>Sara</vCard:Family>
+	<vCard:Given>Gilbert</vCard:Given>
+    </vCard:N>
+	<vCard:Country>China</vCard:Country>
+	<vCard:Education>Masters in Security Informatics</vCard:Education>
+	<vCard:age rdf:datatype='http://www.w3.org/2001/XMLSchema#integer'>60</vCard:age>	
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://somewhere/JasonDay/">
+    <vCard:FN>Jason Day</vCard:FN>
+    <vCard:N
+	vCard:Family="Jason"
+	vCard:Given="Day"/>
+	<vCard:Country>Australia</vCard:Country>
+	<vCard:Education>Ph.D in Computer Science</vCard:Education>	
+	<vCard:age rdf:datatype='http://www.w3.org/2001/XMLSchema#integer'>55</vCard:age>
+	<vCard:Email rdf:parseType="Resource">
+		<rdf:type rdf:resource="http://www.w3.org/2001/vcard-rdf/3.0#internet"/>
+		<rdf:value>jasonday@somewhere.com</rdf:value>
+    </vCard:Email>
+  </rdf:Description>
+
+</rdf:RDF>

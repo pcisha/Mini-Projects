@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">locationGPS</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    
+    <string name="map_key">AIzaSyDBAy_Pyi92qFgbHkm4jG1U8_NZ11nr-SE</string>
+
+</resources>

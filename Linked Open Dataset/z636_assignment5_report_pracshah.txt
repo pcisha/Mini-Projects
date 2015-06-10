@@ -1,0 +1,17 @@
+Report:
+
+Z636: Data Semantics/Semantic Web
+Assignment 5
+Developer: Prachi Shah
+2014
+
+Tools:
+Google Refine, Eclipse IDE, RDF extension for Google Refine.
+
+
+References:
+100 Best American Authors.http://www.goodreads.com/list/show/2413.100_Best_American_Authors
+dbpedia.org
+From Excel file to RDF with links to DBpedia and Europeana . https://www.youtube.com/watch?v=1irwjiUOh_4
+OpenRefine. http://openrefine.org/documentation.html
+RDF Refine. http://refine.deri.ie/

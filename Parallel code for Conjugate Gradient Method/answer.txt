@@ -1,0 +1,55 @@
+CSCI-B 673
+Aissngment: ex3 [Final]
+Prachi Shah [pracshah@indiana.edu]
+05/08/2014
+================================
+DESCRIPTION:
+1. I have implemented Matrix Vector Multiplication for a Diagonal Matrix.
+2. I have not implemented two process communication.
+
+FILES INCLUDED:
+CGsetup.c
+CGsetup.h
+coeffs.c
+coeffs.h
+fivept.c
+fivept.h
+getsten.c
+getsten.h
+launcher
+main.c		: Contains main code for multiplication with all function definitions and declarations
+make.inc
+makefile
+residual 	: Contains Iteration no. and Residual values [rho for each iteration]
+result		: Contains the actual#iters, final sqrt(rho), time in seconds for CG solve (not including setup), n, p values
+runit		: script for launching your program on odin
+sizes		: Mentions the process numbers
+slurmlog	: Log file
+ttt.c
+answer.txt	: README file
+
+CODE COMPILATION AND RUNNING:
+In:
+bash> make
+bash> ./launcher
+bash> cat slurmlog
+
+The results are stored in "result" and "residual" files. 
+
+ANSWER:
+Speedup = 1.8379521369934082e-01 / 1.1747908592224121e-01
+	= 1.56449305215903626199 
+
+REFERENCE:
+1. B673: Final. http://www.cs.indiana.edu/classes/b673/assignments/final.html
+2. http://www.cdac.in/HTmL/events/beta-test/archives/promcore-2008/mpi-1x-promcore-2008/matrix-comp-solver-codes/conjugate-gradient-mpi-code-clang.c
+3. Akshay Dorwat
+4. Basic MPI. http://www.cs.earlham.edu/~lemanal/slides/mpi-slides.pdf
+5. Message Passing Interface (MPI). https://computing.llnl.gov/tutorials/mpi/
+6. Conjugate gradient method. http://en.wikipedia.org/wiki/Conjugate_gradient_method
+7. Multiplying A Matrix And A Vector. http://www.facstaff.bucknell.edu/mastascu/elessonshtml/Circuit/MatVecMultiply.htm
+8. Matrix multiplication. http://en.wikipedia.org/wiki/Matrix_multiplication
+9. http://stackoverflow.com/questions/12289235/simple-and-fast-matrix-vector-multiplication-in-c-c
+10. Multiplying matrices and vectors. http://mathinsight.org/matrix_vector_multiplication
+11. Advanced Memory Management: Dynamic Allocation, Part 1. http://www.cprogramming.com/tutorial/dynamic_memory_allocation.html
+
